@@ -27,6 +27,7 @@ class FormikForm extends React.Component {
        
         return ( <div>
             <Form>
+                <h2>register</h2>
                 <Field type="username" name="username" placeholder="username" />
                 <Field type="password" name="password" placeholder="Password" />
                 <button type='submit'>Submit!</button>
@@ -50,7 +51,7 @@ const FormikLoginForm = withFormik({
       .then(res => {
 
         axios
-        .get(`http://localhost:5000/api/restricted/data`,res.token)
+        .get(`http://localhost:5000/api/restricted/data`,{Authorization:res.token})
         .then(res => {
             console.log(res)
         })
@@ -65,8 +66,7 @@ const FormikLoginForm = withFormik({
       .catch(err => {
         console.log(err); // There was an error creating the data and logs to console
       });
-      axios
-      .get('http://localhost:5000/api/restricted/data',)
+    
       //THIS IS WHERE YOU DO YOUR FORM SUBMISSION CODE... HTTP REQUESTS, ETC.
     }
   })(FormikForm);
