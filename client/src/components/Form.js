@@ -53,14 +53,14 @@ const FormikLoginForm = withFormik({
         axios
         .get(`http://localhost:5000/api/restricted/data`,{Authorization:res.token})
         .then(res => {
-            console.log(res)
+            
         })
 
         
-        console.log(res.token)
+     
         setStatus(res);
         resetForm();
-        console.log(res)
+ 
          // Data was created successfully and logs to console
       })
       .catch(err => {

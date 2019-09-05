@@ -18,7 +18,7 @@ class Login extends React.Component {
 
 
     render() { 
-        console.log('login props', this.props)
+        console.log('here',this.props)
         return ( 
             <div>
                 <Form>
@@ -47,19 +47,14 @@ const FormikLoginForm = withFormik({
       axios
       .post("http://localhost:5000/api/login", values)
       .then(res => {
-            console.log(res)
+       
         axios
         .get(`http://localhost:5000/api/restricted/data`,{Authorization:res.token})
         .then(res => {
             setStatus(res)
 
         })
-
-        
-        console.log(res.token)
-        setStatus(res);
-        resetForm();
-        console.log(res)
+   
          // Data was created successfully and logs to console
       })
       .catch(err => {
